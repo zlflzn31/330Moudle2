@@ -1,15 +1,24 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
-<head>
-	<title>Untitled</title>
-</head>
-
-<body>
-
 <?php
-	session_start();	
-//work on view php in here ! 
-?>
+	session_start();
 
-</body>
-</html>
+	$fileName = $_GET['file'];	
+	if( !preg_match('/^[\w_\.\-]+$/', $fileName) ){
+		echo "Invalid filename";
+		exit;
+	}
+	$userName = $_SESSION['user'];	
+	if( !preg_match('/^[\w_\-]+$/', $userName) ){
+		echo "Invalid username";
+		exit;
+	}
+	$full_path = sprintf("/srv/uploads/%s/%s", $userName, $fileName);	
+	//echo "$full_path";
+	// Now we need to get the MIME type (e.g., image/jpeg).  PHP provides a neat little interface to do this called finfo.
+	$finfo = new finfo(FILEINFO_MIME_TYPE);
+	$mime = $finfo->file($full_path);
+	
+	// Finally, set the Content-Type header to the MIME type of the file, and display the file.
+	header("Content-Type: ".$mime);
+	readfile($full_path);
+
+?>

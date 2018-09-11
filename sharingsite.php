@@ -7,11 +7,19 @@
 <body>
 	<?php
 		session_start();
-		$userName = $_SESSION['user'];
+		//Because I did not want the pages being loaded without going through the login page,
+		//I implemented the below codes from :
+		//https://stackoverflow.com/questions/1545357/how-to-check-if-a-user-is-logged-in-in-php
+		//To let only the users who actually logged in can only explore our website. 
+		if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+		} else {
+			header("Location: login.php");
+		}
+				
+		$userName = $_SESSION['username'];
 	?>
 	<h1><?php echo $userName; ?>, you successfully logged in our website. </h1>
 	<h3>Please explore as much as you want :)</h3>
-	
 	
 	<div id = "uploadFile">
 		<form enctype="multipart/form-data" action="uploader.php" method="POST">
@@ -48,8 +56,8 @@
 				
 				printf("%s",$userFiles[$i]);
 	?>
-				<form action= "viewFile.php" method="post">
-					<input type="hidden" name="file" value="<?php echo $filepath;?>"/>
+				<form action= "viewFile.php" method="GET">
+					<input type="hidden" name="file" value="<?php echo $fileName;?>"/>
 					<input type="submit" name="viewAction" value="View File"/>
 				</form>
 				<form action= "deleteFile.php" method="POST">
@@ -60,9 +68,13 @@
 	<?php
 			}
 		}
-	
 	?>
-
+	<br>
+	<br>
+	
+	<form action="logout.php" method="POST">
+		<input type="submit" value="Log Out"/>
+	</form>
 
 
 

@@ -47,6 +47,8 @@
 			fclose($h);
 			// [2] if he is in, then he should be redirected.
 			if($validUser) {
+				$_SESSION['loggedin'] = true;		 // dealing with security stuff.
+				$_SESSION['username'] = $userName;
 				header("Location: sharingsite.php");
 				exit;
 			}

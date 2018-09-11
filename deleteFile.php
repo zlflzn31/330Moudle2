@@ -1,12 +1,27 @@
-// use the unlink function in php
-<?php
-$fh = fopen('test.html', 'a');
-fwrite($fh, '<h1>Hello world!</h1>');
-fclose($fh);
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<title>Untitled</title>
+</head>
 
-unlink('test.html');
+<body>
+
+<?php
+	session_start();
+	$userName = $_SESSION['user'];
+	if( !preg_match('/^[\w_\-]+$/', $userName) ){
+		echo "Invalid username";
+		exit;
+	}	
+	
+	$file = $_POST['file'];
+
+	$fh = fopen($file, 'a');
+	fwrite($fh, '<h1>Hello world!</h1>');
+	fclose($fh);
+	unlink($file);
+	header("Location: sharingsite.php");
 ?>
-//this is copied from the php website
-// not sure yet how to load for each
-// may call in a form for each file.
-// cannot test yet
+
+</body>
+</html>
