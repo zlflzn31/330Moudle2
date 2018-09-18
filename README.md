@@ -1,20 +1,16 @@
-# Moudle 2 GROUP (I DID IT ALONE)
+# File Sharing Site 
 Author: Hong Wi 
   
 # Login details:
 
 usernames:
 hwi
-
 guest
-
 sam
 
 You can create your own username if you want to. 
 
 # Links
-Below are the links I am supposed to attach. 
-
 A link to my login page. 
 - http://ec2-54-89-218-45.compute-1.amazonaws.com/~hwi/Module2_group/login.php
 
@@ -28,7 +24,7 @@ After you log in, there are multiple functions you can enjoy.
 
 Finally, if you want to log out the website, you can simply click logout button. 
 
-# Creative Portion
+# Additional logics 
     Rename a file: 
     In order to rename a file, 
     you need to enter a new file name you wish to change. 
