@@ -1,11 +1,3 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
-<head>
-	<title>Untitled</title>
-</head>
-
-<body>
-
 <?php
 	//These below codes are from:
 	//http://php.net/session_destroy
@@ -20,7 +12,8 @@
 	
 	// If it's desired to kill the session, also delete the session cookie.
 	// Note: This will destroy the session, and not just the session data!
-	if (ini_get("session.use_cookies")) {
+	if (ini_get("session.use_cookies"))
+	{
 		$params = session_get_cookie_params();
 		setcookie(session_name(), '', time() - 42000,
 			$params["path"], $params["domain"],
@@ -33,6 +26,3 @@
 	header("Location: login.php");
 
 ?>
-
-</body>
-</html>
