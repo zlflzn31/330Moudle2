@@ -1,7 +1,7 @@
 # File Sharing Site 
 Author: Hong Wi 
   
-# Login details:
+# Login details
 
 usernames:
 hwi
