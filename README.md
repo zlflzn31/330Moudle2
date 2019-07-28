@@ -15,6 +15,7 @@ You can create your own username if you want to.
 
 A link to my login page. 
 - http://ec2-54-89-218-45.compute-1.amazonaws.com/~hwi/Module2_group/login.php
+* I stopped running the EC2 instance sicne my AWS free tier is done. 
 
 # What I learned
 
