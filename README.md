@@ -25,7 +25,7 @@ A link to my login page.
 
 # Brief summary of what I did 
 
-I created a filesharing webiste. First of all, you need to log in to the website, if you have a user name, then you should click a sign up button. 
+I created a filesharing webiste. First of all, you need to log in to the website. If you don't have an account, please make one by clicking sign-up. 
 
 After you log in, there are multiple functions you can enjoy. 
 
